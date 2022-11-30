@@ -1,0 +1,12 @@
+﻿
+create trigger trg_LuongNhanVien15000
+   on NhanVien
+for insert, update
+as
+     if(select luong from inserted)<15000
+	    begin
+		  print N'Luong < 15000';
+		  rollback transaction 
+		end;
+insert into NHANVIEN
+values ('HÀ', 'CHÍ', N'BẢO', '1725', '2002-10-17', 'TPHCM', 'Nam', 30000, '004',1)

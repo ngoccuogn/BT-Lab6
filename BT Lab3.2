@@ -1,0 +1,7 @@
+﻿create trigger nhanvien3 on NHANVIEN
+after insert 
+as
+begin
+insert into PHANCONG values ((select manv from inserted), 1,2,20)
+end
+insert into NHANVIEN VALUES ('Hà','Quốc','Bảo','020','21-09-2002','Bình Dương','Nam',20000,'004',1)
